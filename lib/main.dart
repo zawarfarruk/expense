@@ -11,8 +11,9 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(title: const Text("Flutter App"),),
         body:Column(
-          // ignore: prefer_const_literals_to_create_immutables
+          
           children: [
+            
             Container(
               color: Colors.green,
               width: double.infinity,
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
                 elevation: 5,
               ),
             ),
-            Card(
+            const Card(
               child: Text("Expense"),
             )
           ],
