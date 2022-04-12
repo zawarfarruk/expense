@@ -17,29 +17,38 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Flutter App"),
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          // ignore: prefer_const_literals_to_create_immutables
-          children: [
-            const SizedBox(
-              // color: Colors.green,
-              width: double.infinity,
-              child: Card(
-                child: Text("Chart"),
-                color: Colors.blue,
-                elevation: 5,
+        appBar: AppBar(title: const Text("Flutter App"), actions: [
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: () {},
+          ),
+        ]),
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              const SizedBox(
+                // color: Colors.green,
+                width: double.infinity,
+                child: Card(
+                  child: Text("Chart"),
+                  color: Colors.blue,
+                  elevation: 5,
+                ),
               ),
-            ),
-            UserTransaction(),
-            // const Card(
-            //   color: Colors.red,
-            //   child: Text("Expense"),
-            // )
-          ],
+              UserTransaction(),
+              // const Card(
+              //   color: Colors.red,
+              //   child: Text("Expense"),
+              // )
+            ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          child:const Icon(Icons.add),
+          onPressed: () {},
         ),
       ),
     );

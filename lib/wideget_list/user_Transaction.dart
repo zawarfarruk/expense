@@ -8,10 +8,6 @@ class UserTransaction extends StatefulWidget {
   
   
   UserTransaction({Key? key}) : super(key: key);
-  
-
-  
-
   @override
   State<UserTransaction> createState() => _UserTransactionState();
 }
