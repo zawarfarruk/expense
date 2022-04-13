@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print, duplicate_ignore
+// ignore_for_file: avoid_print, duplicate_ignore, deprecated_member_use
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/wideget_list/new_transaction.dart';
@@ -11,7 +11,8 @@ void main(List<String> args) {
     home: const MyApp(),
     theme: ThemeData(
       primarySwatch: Colors.purple,
-      accentColor: Colors.amber
+      accentColor: Colors.amber,
+      fontFamily: "OpenSans"
     ),
     debugShowCheckedModeBanner: false,
   ));
@@ -25,18 +26,18 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final List<Transaction> _userTx = [
-    Transaction(
-      id: "t1",
-      title: "Buy Show",
-      amount: 785,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: "t2",
-      title: "Clothes Show",
-      amount: 75.0,
-      date: DateTime.now(),
-    )
+    // Transaction(
+    //   id: "t1",
+    //   title: "Buy Show",
+    //   amount: 785,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: "t2",
+    //   title: "Clothes Show",
+    //   amount: 75.0,
+    //   date: DateTime.now(),
+    // )
   ];
   void _addNewTransaction(String txTitle, double txAmount) {
     final newTx = Transaction(
