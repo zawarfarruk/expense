@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 
-class NewTransaction extends StatelessWidget {
+class NewTransaction extends StatefulWidget {
   NewTransaction(this.tx, {Key? key}) : super(key: key);
   final Function tx;
+
+  @override
+  State<NewTransaction> createState() => _NewTransactionState();
+}
+
+class _NewTransactionState extends State<NewTransaction> {
   final titleCountroller = TextEditingController();
+
   final amountCountroller = TextEditingController();
+
   void submitData() {
     final inputTitle = titleCountroller.text;
     final inputAmount = double.parse(amountCountroller.text);
@@ -12,12 +20,11 @@ class NewTransaction extends StatelessWidget {
       return;
     }
 
-    tx(
-      // titleCountroller.text,
-      // double.parse(amountCountroller.text),
+    widget.tx(
       inputTitle,
       inputAmount,
     );
+    Navigator.of(context).pop();
   }
 
   @override
@@ -34,14 +41,14 @@ class NewTransaction extends StatelessWidget {
               // onChanged: (val)=>titleInput,
 
               controller: titleCountroller,
-              onSubmitted: (_) => submitData(),
+               onSubmitted: (_) => submitData(),
             ),
             TextField(
               decoration: const InputDecoration(labelText: "Amount"),
               //onChanged: (val)=>amountInput
               controller: amountCountroller,
-              keyboardType: TextInputType.number,
-              onSubmitted: (_) => submitData(),
+              //  keyboardType: TextInputType.number,
+               onSubmitted: (_) => submitData(),
             ),
             TextButton(
                 // ignore: duplicate_ignore
@@ -51,10 +58,10 @@ class NewTransaction extends StatelessWidget {
                 //       double.parse(amountCountroller.text));
                 //   // ignore: avoid_print
                 // },
-                child: const Text(
+                child:Text(
                   "Add Transaction",
                   style: TextStyle(
-                    color: Colors.purple,
+                    color:Theme.of(context).primaryColor,
                   ),
                 ))
           ],

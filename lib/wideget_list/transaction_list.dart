@@ -23,15 +23,15 @@ class TransactionList extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                     border: Border.all(
-                  color: Colors.purple,
+                  color: Theme.of(context).primaryColor,
                   width: 2,
                 )),
                 child: Text(
                   "\$${transaction[index].amount}".toString(),
-                  style: const TextStyle(
+                  style:TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Colors.purple,
+                    color: Theme.of(context).primaryColor,
                   ),
                 ),
               ),
@@ -40,10 +40,10 @@ class TransactionList extends StatelessWidget {
                 children: [
                   Text(
                   transaction[index].title.toString(),
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: Colors.blueGrey,
+                      color:Theme.of(context).primaryColor,
                     ),
                   ),
                   Text(DateFormat.yMMMd().format(DateTime.now()))
