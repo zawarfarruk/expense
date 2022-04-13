@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors, sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../models/transaction.dart';

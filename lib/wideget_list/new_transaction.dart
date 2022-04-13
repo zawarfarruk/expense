@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NewTransaction extends StatelessWidget {
-  NewTransaction(this.tx);
+  NewTransaction(this.tx, {Key? key}) : super(key: key);
   final Function tx;
   final titleCountroller = TextEditingController();
   final amountCountroller = TextEditingController();

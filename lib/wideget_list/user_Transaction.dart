@@ -1,4 +1,7 @@
+// ignore: duplicate_ignore
 // ignore: file_names
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import './new_transaction.dart';
 import './transaction_list.dart';
@@ -7,7 +10,7 @@ import '../models/transaction.dart';
 class UserTransaction extends StatefulWidget {
   
   
-  UserTransaction({Key? key}) : super(key: key);
+  const UserTransaction({Key? key}) : super(key: key);
   @override
   State<UserTransaction> createState() => _UserTransactionState();
 }
