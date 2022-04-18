@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print, duplicate_ignore, deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/wideget_list/chart.dart';
 import 'package:flutter_application_2/wideget_list/new_transaction.dart';
 import './wideget_list/transaction_list.dart';
 import './models/transaction.dart';
@@ -25,7 +26,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final List<Transaction> _userTx = [
+  // ignore: unused_field
+  final List<Transaction> _userTxs = [
     // Transaction(
     //   id: "t1",
     //   title: "Buy Show",
@@ -39,15 +41,25 @@ class _MyAppState extends State<MyApp> {
     //   date: DateTime.now(),
     // )
   ];
-  void _addNewTransaction(String txTitle, double txAmount) {
+  // ignore: unused_element;, unused_element
+  List<Transaction> get _userTx{
+    return _userTxs.where((tx){
+      return tx.date!.isAfter(
+        DateTime.now().subtract(
+          const Duration(days: 7),
+        ),
+      );
+    }).toList();
+  }
+  void _addNewTransaction(String txTitle, double txAmount,DateTime chosenDate) {
     final newTx = Transaction(
-        id: DateTime.now().toString(),
+         id: DateTime.now().toString(),
         title: txTitle,
         amount: txAmount,
-        date: DateTime.now());
+        date: chosenDate);
 
     setState(() {
-      _userTx.add(newTx);
+      _userTxs.add(newTx);
     });
   }
 
@@ -64,7 +76,14 @@ class _MyAppState extends State<MyApp> {
            );
         });
   }
+void deleteTransaction(String id){
+  setState(() {
+    _userTxs.removeWhere((Tx){
+return Tx.id==id;
+    });
+  }); 
 
+}
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -81,16 +100,17 @@ class _MyAppState extends State<MyApp> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             // ignore: prefer_const_literals_to_create_immutables
             children: [
-              const SizedBox(
-                // color: Colors.green,
-                width: double.infinity,
-                child: Card(
-                  child: Text("Chart"),
-                  color: Colors.blue,
-                  elevation: 5,
-                ),
-              ),
-              TransactionList(_userTx),
+              // const SizedBox(
+              //   // color: Colors.green,
+              //   width: double.infinity,
+              //   child: Card(
+              //     child: Text("Chart"),
+              //     color: Colors.blue,
+              //     elevation: 5,
+              //   ),
+              // ),
+              Chart(_userTxs),
+              TransactionList(_userTxs,deleteTransaction),
               // const Card(
               //   color: Colors.red,
               //   child: Text("Expense"),
